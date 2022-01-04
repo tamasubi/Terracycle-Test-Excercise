@@ -10,10 +10,9 @@ loop do
     
     doc = Nokogiri::HTML(html)
 
-    blank_icon = doc.css('.octicon.octicon-git-pull-request.blankslate-icon')
-
-     
-    #break if blank_icon 
+    blank_icon = doc.css('svg.octicon.octicon-git-pull-request.blankslate-icon')
+ 
+    break unless blank_icon.empty?
 
     doc.css('a.no-underline.h4').each do |link|
         
